@@ -10,6 +10,6 @@ class Dealership {
       this.sold_vehicles = soldVehicles;
     }
   }
-  
-  module.exports = Dealership;
+
+export default {Dealership}
   

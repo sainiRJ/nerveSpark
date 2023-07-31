@@ -1,7 +1,7 @@
-const fs = require('fs');
+import {fs}from'fs';
 
 // Upload a file
-const uploadFile =(req, res, next)=> {
+export const uploadFile =(req, res, next)=> {
   try {
     const file = req.file;
     if (!file) {
@@ -40,5 +40,3 @@ const downloadFile=(req, res, next)=> {
   }
 }
 
-
-module.exports ={downloadFile, uploadFile}

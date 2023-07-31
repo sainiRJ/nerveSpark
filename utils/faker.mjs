@@ -1,7 +1,7 @@
-const faker = require('faker');
+import faker from 'faker';
 
 // Generate dummy data for the admin model
-const generateAdmin =()=> {
+export const generateAdmin =()=> {
   const adminId = faker.internet.userName();
   const password = faker.internet.password();
 
@@ -12,7 +12,7 @@ const generateAdmin =()=> {
 }
 
 // Generate dummy data for the user model
-const generateUser= ()=> {
+export  const generateUser= ()=> {
   const userEmail = faker.internet.email();
   const userId = faker.datatype.uuid;
   const userLocation = faker.address.city();
@@ -29,7 +29,7 @@ const generateUser= ()=> {
 }
 
 // Generate dummy data for the dealership model
-const generateDealership = ()=> {
+export const generateDealership = ()=> {
   const dealershipEmail = faker.internet.email();
   const dealershipId = faker.datatype.uuid;
   const dealershipName = faker.company.companyName();
@@ -47,7 +47,7 @@ const generateDealership = ()=> {
 }
 
 // Generate dummy data for the car model
-const generateCar=()=> {
+export const generateCar=()=> {
   const type = faker.vehicle.type();
   const name = faker.random.word(); 
   const model = faker.vehicle.model();
@@ -62,7 +62,7 @@ const generateCar=()=> {
 }
 
 // Generate dummy data for the deal model
-const generateDeal =() =>{
+export const generateDeal =() =>{
   const carId = faker.datatype.uuid;
   const dealInfo = {};
 
@@ -73,7 +73,7 @@ const generateDeal =() =>{
 }
 
 // Generate dummy data for the sold vehicle model
-const generateSoldVehicle= () =>{
+export const generateSoldVehicle= () =>{
   const vehicleId = faker.datatype.uuid;
   const carId = faker.datatype.uuid;
   const vehicleInfo = {};
@@ -87,4 +87,3 @@ const generateSoldVehicle= () =>{
 
 
 
-module.exports = {generateAdmin,generateUser,generateCar,generateDealership,generateDeal,generateSoldVehicle}

@@ -1,25 +1,29 @@
 {
-  "name": "nervesparkassignment",
+  "name": "indeedassign",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node --experimental-modules index.mjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "faker": "^5.5.3",
     "jsonwebtoken": "^9.0.1",
-    "mongodb": "^5.7.0"
+    "mongodb": "^5.7.0",
+    "multer": "^1.4.5-lts.1"
   },
   "devDependencies": {
-    "@babel/node": "^7.22.6",
-    "@babel/preset-env": "^7.22.9"
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/register": "^7.22.5"
   }
 }

@@ -1,8 +1,8 @@
-const { ObjectId } = require('mongodb');
-const Deal = require('../models/deal');
+import { ObjectId } from 'mongodb';
+import {Deal} from '../models/deal.mjs';
 
 // Get all deals on a certain car
-const getDealsOnCar = async(req, res, next)=> {
+export const getDealsOnCar = async(req, res, next)=> {
   try {
     const { carId } = req.params;
     const deals = await req.db.collection('deals').find({ car_id: carId }).toArray();
@@ -14,7 +14,7 @@ const getDealsOnCar = async(req, res, next)=> {
 }
 
 // Get all deals from a certain dealership
-const getDealsFromDealership= async(req, res, next)=> {
+export const getDealsFromDealership= async(req, res, next)=> {
   try {
     const { dealershipId } = req.params;
     const deals = await req.db.collection('deals').find({ dealership_id: dealershipId }).toArray();
@@ -25,4 +25,3 @@ const getDealsFromDealership= async(req, res, next)=> {
   }
 }
 
-module.exports = {getDealsFromDealership, getDealsOnCar}

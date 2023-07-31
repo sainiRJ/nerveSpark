@@ -1,18 +1,17 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const Admin = require('../models/admin')
-const User = require('../models/usermodel');
-const Dealership = require('../models/Dealership');
-const tokenUtil = require('../utils/tokenUtil');
-const { generateRandomId } = require('../utils/idUtil')
-const admin = require('../models/admin');
-const user = require('../models/usermodel')
-const {generateAdmin,generateUser,generateDealership,generateCar,generateDeal,generateSoldVehicle}=require('../utils/faker')
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import {Admin} from '../models/admin.mjs'
+import User from '../models/usermodel.mjs';
+import  Dealership from '../models/Dealership.mjs';
+import tokenUtil from '../utils/tokenUtil.mjs';
+import { generateRandomId } from '../utils/idUtil.mjs';
+import {generateAdmin,generateUser,generateDealership,generateCar,generateDeal,generateSoldVehicle } from '../utils/faker.mjs'
 
 
 // admin registration
-const registerAdmin = async(req, res)=>{
+export const registerAdmin = async(req, res)=>{
     try {
+      console.log("hello")
       // Extract the required data from the request body
       const { adminId, password } = req.body;
   
@@ -32,7 +31,7 @@ const registerAdmin = async(req, res)=>{
   }
 
 // Dealership login
-const  loginAdmin = async(req, res) =>{
+export const  loginAdmin = async(req, res) =>{
     try {
       const { adminId, password } = req.body;
   
@@ -62,7 +61,7 @@ const  loginAdmin = async(req, res) =>{
 
 
 // User registration
-const registerUser = async(req, res)=>{
+export const registerUser = async(req, res)=>{
   try {
     // Extract the required data from the request body
     const { userEmail,  userLocation, password } = req.body;
@@ -84,7 +83,7 @@ const registerUser = async(req, res)=>{
 }
 
 // User login
-const loginUser = async(req, res)=> {
+export const loginUser = async(req, res)=> {
   try {
     // Extract the required data from the request body
     const { userEmail, password } = req.body;
@@ -111,7 +110,7 @@ const loginUser = async(req, res)=> {
 }
 
 // Register a new dealership
-const registerDealership= async(req, res) =>{
+export const registerDealership= async(req, res) =>{
   try {
     const { dealershipEmail,dealershipName ,dealershipLocation ,  password } = req.body;
 
@@ -138,7 +137,7 @@ const registerDealership= async(req, res) =>{
 }
 
 // Dealership login
-const loginDealership = async(req, res) =>{
+export const loginDealership = async(req, res) =>{
   try {
     const { dealershipEmail, password } = req.body;
 
@@ -163,7 +162,7 @@ const loginDealership = async(req, res) =>{
   }
 }
 
-const generate = async(req,res)=>{
+export const generate = async(req,res)=>{
 
     const {adminId,password}=generateAdmin()
     var passwordHash = await bcrypt.hash(password, 10);
@@ -186,4 +185,3 @@ const generate = async(req,res)=>{
 }
 
 
-module.exports ={registerAdmin, loginAdmin, registerUser, loginUser, registerDealership, loginDealership, generate}

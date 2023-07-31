@@ -1,13 +1,13 @@
 
-const Car = require("../models/car");
-const {generateCar} = require("../utils/faker")
-const { ObjectId} = require('mongodb')
+import Car from "../models/car.mjs";
+import {generateCar} from "../utils/faker.mjs"
+import { ObjectId} from 'mongodb'
 
 
 
 //add cars
 
-const addCar = async(req, res)=> {
+export const addCar = async(req, res)=> {
   try {
     const dealershipId =new ObjectId( req.dealershipId);
     const carsCollection = req.db.collection('cars');
@@ -49,7 +49,7 @@ const addCar = async(req, res)=> {
 
 
 // Get all cars
-const getAllCars = async(req, res, next)=> {
+export const getAllCars = async(req, res, next)=> {
   try {
     const cars = await req.db.collection('cars').find().toArray();
     res.json(cars);
@@ -60,7 +60,7 @@ const getAllCars = async(req, res, next)=> {
 }
 
 // Get all cars in a dealership
-const getCarsInDealership= async(req, res, next)=> {
+export const getCarsInDealership= async(req, res, next)=> {
   try {
     const { dealershipId } = req.params;
     const cars = await req.db.collection('cars').find({ dealership_id: dealershipId }).toArray();
@@ -72,4 +72,3 @@ const getCarsInDealership= async(req, res, next)=> {
 }
 
 
-module.exports = {addCar, getAllCars, getCarsInDealership}

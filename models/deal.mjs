@@ -6,5 +6,5 @@ class Deal {
     }
   }
   
-  module.exports = Deal;
+  export {Deal};
   

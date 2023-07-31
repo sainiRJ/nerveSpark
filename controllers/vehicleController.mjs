@@ -1,10 +1,10 @@
-const { ObjectId } = require('mongodb');
-const SoldVehicle = require('../models/soldvehicle');
+import { ObjectId } from 'mongodb';
+import {SoldVehicle }from '../models/soldvehicle.mjs';
 
 
  
 // Get all vehicles owned by a user
-const getVehiclesByUser= async(req, res, next)=> {
+export const getVehiclesByUser= async(req, res, next)=> {
   try {
     const { userId } = req.params;
     const vehicles = await req.db.collection('sold_vehicles').find({ user_id: userId }).toArray();
@@ -16,7 +16,7 @@ const getVehiclesByUser= async(req, res, next)=> {
 }
 
 // Add a new vehicle to the list of sold vehicles after a deal is made
-const addSoldVehicle =async(req, res, next) =>{
+export const addSoldVehicle =async(req, res, next) =>{
   try {
     const dealershipId = req.user.dealership_id; // Assuming the authenticated user is a dealership
     const { carId, vehicleInfo } = req.body;
@@ -31,4 +31,3 @@ const addSoldVehicle =async(req, res, next) =>{
   }
 }
 
-module.exports = {getVehiclesByUser, addSoldVehicle}

@@ -1,13 +1,13 @@
-const jwt = require('jsonwebtoken');
+import  Jwt  from "jsonwebtoken";
 
 // Generate JWT token
-function generateToken(userEmail) {
+ const generateToken = (userEmail)=> {
   const token = jwt.sign({ user_email: userEmail }, 'your_secret_key');
   return token;
 }
 
 // Verify JWT token
-function verifyToken(token) {
+  const verifyToken= (token)=> {
   try {
     const decoded = jwt.verify(token, 'your_secret_key');
     return decoded;
@@ -16,4 +16,4 @@ function verifyToken(token) {
   }
 }
 
-module.exports = { generateToken, verifyToken };
+export default {generateToken, verifyToken}

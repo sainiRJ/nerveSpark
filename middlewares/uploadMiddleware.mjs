@@ -1,4 +1,4 @@
-const multer = require('multer');
+import { Multer } from "multer";
 
 // Set up multer storage and file upload configuration
 const storage = multer.diskStorage({
@@ -17,4 +17,4 @@ const storage = multer.diskStorage({
 // Create the multer instance
  const upload = multer({ storage: storage });
 
- module.exports = upload;
+export default {upload};

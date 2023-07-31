@@ -6,5 +6,5 @@ class SoldVehicle {
     }
   }
   
-  module.exports = SoldVehicle;
+  export {SoldVehicle};
   
